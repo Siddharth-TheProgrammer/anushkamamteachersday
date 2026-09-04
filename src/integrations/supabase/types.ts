@@ -14,7 +14,81 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      report_card_submissions: {
+        Row: {
+          asking_questions_rating: number | null
+          attention_rating: number | null
+          behaviour_rating: number | null
+          classroom_participation_rating: number | null
+          confidence_rating: number | null
+          created_at: string
+          curiosity_rating: number | null
+          id: string
+          listening_rating: number | null
+          overall_rating: number | null
+          responsibility_rating: number | null
+          teacher_comment: string | null
+          teacher_name: string
+          updated_at: string
+        }
+        Insert: {
+          asking_questions_rating?: number | null
+          attention_rating?: number | null
+          behaviour_rating?: number | null
+          classroom_participation_rating?: number | null
+          confidence_rating?: number | null
+          created_at?: string
+          curiosity_rating?: number | null
+          id?: string
+          listening_rating?: number | null
+          overall_rating?: number | null
+          responsibility_rating?: number | null
+          teacher_comment?: string | null
+          teacher_name?: string
+          updated_at?: string
+        }
+        Update: {
+          asking_questions_rating?: number | null
+          attention_rating?: number | null
+          behaviour_rating?: number | null
+          classroom_participation_rating?: number | null
+          confidence_rating?: number | null
+          created_at?: string
+          curiosity_rating?: number | null
+          id?: string
+          listening_rating?: number | null
+          overall_rating?: number | null
+          responsibility_rating?: number | null
+          teacher_comment?: string | null
+          teacher_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      teacher_complaints: {
+        Row: {
+          complaint_text: string
+          created_at: string
+          id: string
+          teacher_name: string
+          updated_at: string
+        }
+        Insert: {
+          complaint_text: string
+          created_at?: string
+          id?: string
+          teacher_name?: string
+          updated_at?: string
+        }
+        Update: {
+          complaint_text?: string
+          created_at?: string
+          id?: string
+          teacher_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
