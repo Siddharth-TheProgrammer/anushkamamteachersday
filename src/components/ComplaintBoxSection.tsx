@@ -75,15 +75,17 @@ export function ComplaintBoxSection() {
   return (
     <section id="complaint-box" className="mx-auto w-full max-w-3xl px-5 py-20">
       <Reveal>
-        <h2 className="text-center text-4xl md:text-5xl">Anushka Ma'am's Complaint Box 📮</h2>
-        <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-          Ma'am, you finally have an official place to complain about your student, Siddharth
-          Yadav. 😭
+        <h2 className="text-center text-4xl leading-tight md:text-5xl">
+          Anushka Ma'am's Complaint Box 📮
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-center leading-relaxed text-muted-foreground">
+          Ma'am, you finally have an official place to complain about your student, Siddharth Yadav.
+          😭
         </p>
       </Reveal>
 
       <Reveal delay={100}>
-        <div className="paper-card mt-10 p-6 md:p-9">
+        <div className="paper-card mt-8 p-6 md:mt-9 md:p-9">
           <Textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
