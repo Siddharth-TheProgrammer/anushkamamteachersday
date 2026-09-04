@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { ReportCardSection } from "@/components/ReportCardSection";
 import { ComplaintBoxSection } from "@/components/ComplaintBoxSection";
 import { Button } from "@/components/ui/button";
+import floralFrame from "@/assets/floral-frame.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,35 +29,71 @@ export const Route = createFileRoute("/")({
 });
 
 const APPRECIATION = [
-  { title: "You teach beautifully", text: "Your classes never feel like something to get through. You teach with care, and it shows in the way we learn." },
-  { title: "Patience with every doubt", text: "You explain Maths and Science patiently, even when the same doubt comes back for the third time." },
-  { title: "Difficult made simple", text: "Somehow the concepts that looked impossible in the book become clear once you explain them your way." },
-  { title: "Genuine kindness", text: "Your kindness isn't something you switch on for a class. It's just how you are with your students." },
-  { title: "Warm and approachable", text: "Nobody hesitates before walking up to you with a question, and that says a lot." },
-  { title: "A safe place to speak", text: "You make students comfortable sharing what they're thinking, even when they aren't sure it's right." },
-  { title: "You trust your students", text: "That trust makes us want to be worth it." },
-  { title: "You listen first", text: "You hear the whole thing before deciding anything. That's rarer than it sounds." },
-  { title: "Always encouraging", text: "A small line of encouragement from you can change how an entire week feels." },
-  { title: "A positive classroom", text: "The atmosphere in your class is calm and easy, and learning happens naturally in it." },
-  { title: "Never unnecessarily strict", text: "You keep discipline without making anyone feel small." },
-  { title: "You genuinely care", text: "We can tell that our learning and growth actually matter to you." },
+  {
+    title: "You teach beautifully",
+    text: "Your classes never feel like something to get through — they feel like something to understand.",
+  },
+  {
+    title: "You explain patiently",
+    text: "Whether it's a Maths problem or a Science concept, you keep explaining until it actually clicks.",
+  },
+  {
+    title: "You make hard things simple",
+    text: "Difficult chapters stop looking scary once you break them down.",
+  },
+  {
+    title: "You are genuinely kind",
+    text: "Your kindness isn't an act for the classroom. It's just who you are.",
+  },
+  {
+    title: "You are warm and approachable",
+    text: "Nobody hesitates before walking up to your desk with a doubt.",
+  },
+  {
+    title: "You make us comfortable",
+    text: "Sharing a thought in your class never feels like a risk.",
+  },
+  {
+    title: "You trust your students",
+    text: "That trust quietly makes us want to deserve it.",
+  },
+  {
+    title: "You listen before judging",
+    text: "You hear the whole thing first. That matters more than you know.",
+  },
+  {
+    title: "You encourage us",
+    text: "One line of encouragement from you can fix an entire bad day.",
+  },
+  {
+    title: "You create a positive classroom",
+    text: "Your room feels calm, and calm is where learning actually happens.",
+  },
+  {
+    title: "You are never unnecessarily strict",
+    text: "You keep discipline without making anyone feel small.",
+  },
+  {
+    title: "You care about our growth",
+    text: "You notice progress, not just marks — and we can feel that.",
+  },
 ];
 
 const LESSONS = [
   {
-    emoji: "🌱",
+    num: "01",
     title: "Confidence",
-    text: "Before, I used to hold my questions back in case they sounded silly. The way you respond — calmly, without making anyone feel foolish — slowly changed that. Now I ask, I speak up, and I believe a little more in what I'm capable of.",
+    text: "Before your classes, I used to keep half my questions to myself in case they sounded silly. You never once made a question feel silly, and slowly I started raising my hand, saying what I actually thought, and trusting that my own reasoning was worth hearing. That confidence didn't come from a chapter — it came from the way you responded.",
   },
   {
-    emoji: "📘",
+    num: "02",
     title: "Responsibility",
-    text: "You never had to lecture me about being responsible. Watching how seriously you take your own work, and how you expect us to own our learning, taught me to take responsibility for my actions and my studies instead of finding excuses.",
+    text: "You have a way of expecting the best from us without pressuring us, and that made me want to own my work instead of making excuses for it. Because of your guidance, I've learnt that being responsible isn't about being scared of consequences — it's about respecting the effort someone else is putting into you.",
   },
   {
-    emoji: "💗",
+    num: "03",
     title: "Being a Better Person",
-    text: "Some of the most important things I've learned from you were never part of any chapter. Your patience and kindness showed me the kind of person I'd like to be — someone who listens properly and treats people gently.",
+    text: "The biggest lesson wasn't in Maths or Science. Watching how patiently and kindly you treat every student taught me that kindness is a habit you choose, again and again. I've genuinely tried to be gentler and more understanding with people around me because of the example you set.",
   },
 ];
 
@@ -68,37 +105,49 @@ function TeachersDayPage() {
       <Petals />
 
       <section className="relative z-10 flex min-h-screen items-center justify-center px-5 py-16">
-        <div className="paper-card float-slow w-full max-w-2xl p-8 text-center md:p-14">
-          <p className="script-accent text-3xl md:text-4xl">For my teacher</p>
-          <h1 className="mt-3 text-4xl leading-tight md:text-6xl">
-            Happy Teachers' Day, Anushka Ma'am! 🌸
-          </h1>
-          <p className="mt-5 text-lg text-muted-foreground">
-            A little digital surprise from your student.
-          </p>
-          <p className="mx-auto mt-5 max-w-md leading-relaxed">
-            Ma'am, you teach me Maths and Science — two subjects that could easily feel heavy,
-            but never do in your class. So instead of a card on paper, I made you this one.
-          </p>
-          {!opened && (
-            <Button
-              size="lg"
-              className="mt-8 rounded-full px-8 text-base"
-              onClick={() => {
-                setOpened(true);
-                requestAnimationFrame(() =>
-                  document.getElementById("thank-you")?.scrollIntoView({ behavior: "smooth" }),
-                );
-              }}
-            >
-              Open Your Card ✨
-            </Button>
-          )}
-          {opened && (
-            <p className="mt-8 text-sm text-muted-foreground">
-              Scroll down, Ma'am — there's a little more waiting. ↓
+        <div className="relative w-full max-w-3xl overflow-hidden rounded-[2rem] border border-border/50 bg-card shadow-[var(--shadow-card)]">
+          <img
+            src={floralFrame}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-95"
+          />
+          <div className="relative px-7 py-16 text-center md:px-20 md:py-24">
+            <p className="font-display text-xl text-primary md:text-2xl">5th September</p>
+            <h1 className="mt-3 text-4xl leading-tight md:text-6xl">
+              Happy Teachers' Day,
+              <br />
+              <span className="bg-gradient-to-r from-[oklch(0.68_0.12_12)] via-[oklch(0.65_0.1_320)] to-[oklch(0.72_0.11_45)] bg-clip-text text-transparent">
+                Anushka Ma'am!
+              </span>{" "}
+              🌸
+            </h1>
+            <p className="mt-6 text-lg text-foreground/80">
+              A little digital surprise from your student.
             </p>
-          )}
+            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+              For the teacher who takes me through Maths and Science — and somehow makes both of
+              them feel a lot less frightening.
+            </p>
+            {!opened ? (
+              <Button
+                size="lg"
+                className="mt-8 rounded-full px-8 text-base"
+                onClick={() => {
+                  setOpened(true);
+                  requestAnimationFrame(() =>
+                    document.getElementById("thank-you")?.scrollIntoView({ behavior: "smooth" }),
+                  );
+                }}
+              >
+                Open Your Card ✨
+              </Button>
+            ) : (
+              <p className="mt-8 text-sm text-muted-foreground">
+                Scroll down, Ma'am — there's a little more waiting. ↓
+              </p>
+            )}
+          </div>
         </div>
       </section>
 
@@ -108,62 +157,63 @@ function TeachersDayPage() {
             <Reveal>
               <div className="paper-card p-7 md:p-12">
                 <h2 className="text-4xl md:text-5xl">Thank You, Anushka Ma'am.</h2>
-                <div className="mt-6 space-y-4 text-lg leading-relaxed">
+                <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
                   <p>
-                    Teaching, I've realised, is not only about chapters, homework, exams, marks,
-                    Maths problems and Science concepts. Those are the visible parts. The parts
-                    that actually stay with a student are much quieter.
+                    I think a lot of people assume teaching is only about chapters, homework,
+                    exams, marks, Maths problems and Science concepts. Watching you teach, I've
+                    realised it's far more than that.
                   </p>
                   <p>
-                    The way you listen before answering. The way you explain something a second
-                    and third time without a trace of irritation. The way you encourage instead
-                    of correcting harshly. The way you trust us. Those small things build a
-                    classroom where a student can breathe, and they stay with us far longer than
-                    any formula.
+                    It's the smaller things — listening properly when a student speaks,
+                    encouraging someone who has just got an answer wrong, explaining the same step
+                    a third time without a hint of irritation, trusting us, and quietly building a
+                    classroom where nobody feels awkward. Those things don't appear in any
+                    syllabus, but they stay with a student for a very long time.
                   </p>
                   <p>
-                    Because of your kindness and your willingness to listen, I've never felt
-                    hesitant about asking you a question or sharing what I think. That comfort is
-                    not something every student gets, and I don't take it lightly.
+                    Your kindness and your willingness to listen are the reasons I feel
+                    comfortable sharing my thoughts and asking questions instead of keeping them
+                    to myself. Thank you for that, Ma'am. It has made learning feel much lighter.
                   </p>
-                  <p>Thank you, Ma'am. Genuinely.</p>
                 </div>
               </div>
             </Reveal>
           </section>
 
-          <section className="mx-auto w-full max-w-5xl px-5 py-20">
+          <section className="mx-auto w-full max-w-6xl px-5 py-20">
             <Reveal>
               <h2 className="text-center text-4xl md:text-5xl">What I Appreciate About You</h2>
               <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
-                A few of the things I notice, in no particular order.
+                A few things I notice, in no particular order.
               </p>
             </Reveal>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {APPRECIATION.map((item, i) => (
-                <Reveal key={item.title} delay={i * 60}>
+                <Reveal key={item.title} delay={i * 50}>
                   <div className="paper-card h-full p-6">
-                    <h3 className="text-2xl">{item.title}</h3>
-                    <p className="mt-3 leading-relaxed text-muted-foreground">{item.text}</p>
+                    <span className="block size-2 rounded-full bg-primary/70" />
+                    <h3 className="mt-4 text-2xl">{item.title}</h3>
+                    <p className="mt-2 leading-relaxed text-muted-foreground">{item.text}</p>
                   </div>
                 </Reveal>
               ))}
             </div>
           </section>
 
-          <section className="mx-auto w-full max-w-4xl px-5 py-20">
+          <section className="mx-auto w-full max-w-6xl px-5 py-20">
             <Reveal>
               <h2 className="text-center text-4xl md:text-5xl">Things I've Learned From You</h2>
+              <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">
+                Beyond the classroom, beyond the syllabus.
+              </p>
             </Reveal>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {LESSONS.map((lesson, i) => (
                 <Reveal key={lesson.title} delay={i * 100}>
-                  <div className="paper-card h-full p-7 text-center">
-                    <div className="text-4xl">{lesson.emoji}</div>
-                    <h3 className="mt-3 text-2xl">{lesson.title}</h3>
-                    <p className="mt-3 text-left leading-relaxed text-muted-foreground">
-                      {lesson.text}
-                    </p>
+                  <div className="paper-card h-full bg-gradient-to-br from-secondary/40 to-transparent p-7">
+                    <p className="font-display text-3xl text-primary">{lesson.num}</p>
+                    <h3 className="mt-2 text-2xl">{lesson.title}</h3>
+                    <p className="mt-3 leading-relaxed text-muted-foreground">{lesson.text}</p>
                   </div>
                 </Reveal>
               ))}
@@ -176,68 +226,86 @@ function TeachersDayPage() {
           <section className="mx-auto w-full max-w-3xl px-5 py-20">
             <Reveal>
               <div className="paper-card p-7 md:p-12">
-                <h2 className="text-4xl md:text-5xl">A Message From Your Student</h2>
-                <div className="mt-6 space-y-4 text-lg leading-relaxed">
+                <h2 className="text-center text-4xl md:text-5xl">A Message From Your Student</h2>
+                <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
                   <p>Dear Anushka Ma'am,</p>
                   <p>
-                    I think a teacher becomes memorable less because of one particular lesson and
-                    more because of how they make a student feel — heard, encouraged, trusted,
-                    and comfortable enough to speak honestly. That is exactly what you've given
-                    me, and it's the thing I appreciate most about you.
+                    I've thought about this a lot, and I don't think a teacher becomes memorable
+                    because of one particular lesson. I think it's the way they make a student
+                    feel — heard, encouraged, trusted, and comfortable enough to speak up. That is
+                    exactly what you've given me.
                   </p>
                   <p>
-                    I'm grateful that you are the one teaching me Maths and Science. You notice
-                    when something hasn't clicked, you slow down instead of moving on, and you
-                    never make a question feel like a bother. Your kindness is noticed, Ma'am —
-                    much more than you probably realise.
+                    I'm genuinely grateful that you're the one teaching me Maths and Science.
+                    You've made two subjects that many people are anxious about feel approachable,
+                    and more than that, you've made the classroom a place where I can admit I
+                    didn't understand something without feeling embarrassed about it.
                   </p>
                   <p>
-                    Your trust means a great deal to me. You give me space to share my thoughts,
-                    you listen before forming an opinion, and you've made asking questions feel
-                    normal rather than embarrassing. Because of that, your guidance has mattered
-                    to me well beyond marks and syllabus.
+                    Your kindness does not go unnoticed, Ma'am. The trust you place in your
+                    students means a great deal to me — you give me space to share what I think,
+                    and you listen before forming an opinion. That is rarer than you probably
+                    realise, and it has helped me in ways that go well beyond academics.
                   </p>
                   <p>
-                    I respect you deeply, and I'd like my work and the way I behave to show that
-                    your effort was never taken for granted. As I keep learning and growing, I
-                    hope I can make you proud — not with one good result, but with the kind of
-                    student and person I turn out to be.
+                    I respect you deeply, and I hope that as I keep learning and growing, my work
+                    and my behaviour show you that your guidance was never taken for granted. Your
+                    encouragement genuinely matters to me, and I'd like to make you proud through
+                    what I actually do, not just what I say here.
                   </p>
                   <p>
-                    I may forget a few chapters over the years. I won't forget the kind of teacher
-                    you were to me.
+                    Thank you for every patient explanation, every encouraging word, every time
+                    you listened, and every bit of trust you placed in me. I may forget a few
+                    chapters along the way, but I know I'll remember the kind of teacher you were
+                    to me.
                   </p>
-                  <p>Happy Teachers' Day, Anushka Ma'am. Thank you for everything.</p>
-                  <p className="script-accent text-3xl">— Siddharth Yadav</p>
+                  <p className="font-display text-2xl text-foreground">
+                    Happy Teachers' Day, Anushka Ma'am.
+                  </p>
                 </div>
               </div>
             </Reveal>
           </section>
 
-          <section className="mx-auto w-full max-w-2xl px-5 pb-28 pt-10">
+          <section className="mx-auto w-full max-w-3xl px-5 pb-16 pt-10">
             <Reveal>
-              <div className="paper-card float-slow p-8 text-center md:p-12">
-                <div className="text-4xl">🌷</div>
-                <h2 className="mt-4 text-3xl md:text-4xl">
-                  Thank You For Everything, Anushka Ma'am. 🌷
-                </h2>
-                <div className="mt-6 space-y-3 text-lg leading-relaxed">
-                  <p>Some teachers teach lessons.</p>
-                  <p>
-                    Some teachers leave lessons behind that stay with their students for years.
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/50 bg-card shadow-[var(--shadow-card)]">
+                <img
+                  src={floralFrame}
+                  alt=""
+                  aria-hidden
+                  loading="lazy"
+                  className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-95"
+                />
+                <div className="relative px-7 py-14 text-center md:px-16">
+                  <div className="text-4xl">🌷</div>
+                  <h2 className="mt-4 text-3xl md:text-4xl">
+                    Thank You For Everything, Anushka Ma'am.
+                  </h2>
+                  <div className="mt-6 space-y-3 leading-relaxed text-muted-foreground">
+                    <p>Some teachers teach lessons.</p>
+                    <p>
+                      Some teachers leave lessons behind that stay with their students for years.
+                    </p>
+                    <p>
+                      Thank you for being a teacher whose kindness, trust, and guidance I will
+                      always remember.
+                    </p>
+                  </div>
+                  <p className="mt-6 font-display text-2xl text-foreground">
+                    Happy Teachers' Day! ❤️
                   </p>
-                  <p>
-                    Thank you for being a teacher whose kindness, trust, and guidance I will
-                    always remember.
+                  <p className="script-accent mt-6 text-3xl">
+                    — From your student, Siddharth Yadav
                   </p>
-                  <p>Happy Teachers' Day! ❤️</p>
                 </div>
-                <p className="script-accent mt-8 text-3xl">
-                  — From your student, Siddharth Yadav
-                </p>
               </div>
             </Reveal>
           </section>
+
+          <footer className="pb-16 text-center text-sm text-muted-foreground">
+            Made with care for Anushka Ma'am — Maths &amp; Science teacher.
+          </footer>
         </div>
       )}
     </main>

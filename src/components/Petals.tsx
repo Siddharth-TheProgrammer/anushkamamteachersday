@@ -1,22 +1,22 @@
 import { useMemo } from "react";
 
 const COLORS = [
-  "oklch(0.9 0.06 10 / 0.75)",
-  "oklch(0.9 0.05 300 / 0.7)",
-  "oklch(0.92 0.06 55 / 0.7)",
-  "oklch(0.95 0.03 90 / 0.75)",
+  "oklch(0.88 0.06 12 / 0.55)",
+  "oklch(0.87 0.055 300 / 0.5)",
+  "oklch(0.9 0.06 55 / 0.5)",
+  "oklch(0.86 0.05 150 / 0.45)",
 ];
 
-export function Petals({ count = 18 }: { count?: number }) {
+export function Petals({ count = 22 }: { count?: number }) {
   const petals = useMemo(
     () =>
       Array.from({ length: count }, (_, i) => ({
         id: i,
         left: `${(i * 97) % 100}%`,
-        size: 8 + ((i * 7) % 10),
-        duration: 14 + ((i * 5) % 12),
-        delay: -((i * 3) % 18),
-        drift: `${((i % 5) - 2) * 45}px`,
+        size: 5 + ((i * 3) % 6),
+        duration: 22 + ((i * 5) % 16),
+        delay: -((i * 3) % 24),
+        drift: `${((i % 5) - 2) * 30}px`,
         color: COLORS[i % COLORS.length],
       })),
     [count],
@@ -31,7 +31,8 @@ export function Petals({ count = 18 }: { count?: number }) {
           style={{
             left: p.left,
             width: p.size,
-            height: p.size * 1.4,
+            height: p.size,
+            borderRadius: "9999px",
             background: p.color,
             animationDuration: `${p.duration}s`,
             animationDelay: `${p.delay}s`,

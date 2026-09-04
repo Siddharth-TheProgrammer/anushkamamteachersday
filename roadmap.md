@@ -1,0 +1,1 @@
+- [ ] Match anushkamam.lovable.app exactly (content + design), keep ratings empty + delete-ratings option
